@@ -32,5 +32,17 @@ namespace Acme.Biz.Tests
 
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void RetrieveValueObjectTest()
+        {
+            var repository = new VendorRepository();
+            var vendor = new Vendor();
+            var expected = vendor;
+
+            var actual = repository.RetrieveValue<Vendor>("Select ...", vendor);
+
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
